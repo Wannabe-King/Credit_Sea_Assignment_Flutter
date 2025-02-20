@@ -1,3 +1,6 @@
+import 'package:creditsea_flutter_assignment/screens/email_verification.dart';
+import 'package:creditsea_flutter_assignment/screens/pan_detail.dart';
+import 'package:creditsea_flutter_assignment/screens/personal_details.dart';
 import 'package:creditsea_flutter_assignment/screens/welcome.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +17,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'CreditSea',
       debugShowCheckedModeBanner: false,
-      home: const SignInPage(),
+      home: const PanDetail(),
     );
   }
 }

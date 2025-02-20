@@ -1,12 +1,12 @@
 import 'package:creditsea_flutter_assignment/config/color.dart';
 import 'package:flutter/material.dart';
 
-class CutomButton extends StatelessWidget {
+class CustomButton extends StatelessWidget {
   final Function()? onTap;
   final String buttonText;
   final bool disabled;
 
-  const CutomButton({
+  const CustomButton({
     super.key,
     this.onTap,
     required this.buttonText,

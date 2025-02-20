@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class CustomInputContainer extends StatelessWidget {
   final double? width;
+  final double? height;
   final String inputTitle;
   final Widget inputWidget;
 
@@ -9,13 +10,14 @@ class CustomInputContainer extends StatelessWidget {
     super.key,
     this.width,
     required this.inputTitle,
-    required this.inputWidget,
+    required this.inputWidget, this.height,
   });
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
         width: width,
+        height: height,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
