@@ -1,4 +1,4 @@
-import 'package:creditsea_flutter_assignment/config/color.dart';
+import 'package:creditsea_flutter_assignment/constants/color.dart';
 import 'package:creditsea_flutter_assignment/widget/custom_date_picker.dart';
 import 'package:creditsea_flutter_assignment/widget/custom_gender_dropdown.dart';
 import 'package:creditsea_flutter_assignment/widget/custom_input_container.dart';
@@ -76,6 +76,7 @@ class _PersonalDetailState extends State<PersonalDetail> {
               CustomInputContainer(
                 inputTitle: "Gender*",
                 inputWidget: CustomDropdown(
+                  hintText: "Select your gender",
                   options: ["Male", "Female", "Others"],
                 ),
               ),
@@ -89,6 +90,7 @@ class _PersonalDetailState extends State<PersonalDetail> {
               CustomInputContainer(
                 inputTitle: "Your Marital Status *",
                 inputWidget: CustomDropdown(
+                  hintText: "Select",
                   options: ["Married", "Single", "Happy"],
                 ),
               ),

@@ -2,6 +2,7 @@ abstract class Assets {
   static const logo = "assets/logo.png";
   static const email = "assets/email.png";
   static const creditcard = "assets/creditcard.png";
+  static const dollar = "assets/dollar.png";
 
   // icons
   static const car = "assets/car.png";

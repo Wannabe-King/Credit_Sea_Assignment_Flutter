@@ -8,4 +8,5 @@ abstract class ColorX {
   static const darkGrey = Color(0XFF949494);
   static const lightGrey = Color(0XFFC3C3C3);
   static const grey = Color(0XFF626262);
+  static const lightWhite = Color(0XFF757575);
 }

@@ -1,16 +1,18 @@
-import 'package:creditsea_flutter_assignment/config/color.dart';
+import 'package:creditsea_flutter_assignment/constants/color.dart';
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
   final Function()? onTap;
   final String buttonText;
   final bool disabled;
+  final Color background;
 
   const CustomButton({
     super.key,
     this.onTap,
     required this.buttonText,
     required this.disabled,
+    this.background = ColorX.buttonBlue,
   });
 
   @override
@@ -19,15 +21,23 @@ class CustomButton extends StatelessWidget {
       onTap: disabled ? onTap : null,
       child: Container(
         decoration: BoxDecoration(
-          color: disabled ? ColorX.buttonBlue : ColorX.darkGrey,
+          border: background == ColorX.buttonBlue
+              ? null
+              : Border.all(
+                  color: ColorX.buttonBlue,
+                  width: 2,
+                ),
+          color: disabled ? background : ColorX.darkGrey,
           borderRadius: BorderRadius.circular(5),
-          boxShadow: [
-            BoxShadow(
-              color: const Color.fromARGB(127, 0, 119, 255),
-              spreadRadius: 1,
-              blurRadius: 15,
-            )
-          ],
+          boxShadow: background == ColorX.buttonBlue
+              ? [
+                  BoxShadow(
+                    color: const Color.fromARGB(127, 0, 119, 255),
+                    spreadRadius: 1,
+                    blurRadius: 15,
+                  )
+                ]
+              : null,
         ),
         padding: EdgeInsets.all(14),
         width: MediaQuery.of(context).size.width * 0.95,
@@ -35,7 +45,10 @@ class CustomButton extends StatelessWidget {
             child: Text(
           buttonText,
           style: TextStyle(
-              color: ColorX.white, fontSize: 17, fontWeight: FontWeight.w500),
+              color:
+                  background == ColorX.buttonBlue ? ColorX.white : Colors.black,
+              fontSize: 17,
+              fontWeight: FontWeight.w500),
         )),
       ),
     );
