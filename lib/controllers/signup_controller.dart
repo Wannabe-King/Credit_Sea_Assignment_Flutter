@@ -53,7 +53,8 @@ class SignupController extends GetxController {
   Future<bool> signUpUser(BuildContext context) async {
     try {
       final response = await http.post(
-        Uri.parse('http://10.0.2.2:5000/api/auth/signup'),
+        Uri.parse(
+            'https://credit-sea-assignment-flutter-backend.onrender.com/api/auth/signup'),
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode(
             {'phoneNumber': phoneNumber.value, 'password': password.value}),

@@ -14,7 +14,7 @@ class SigninController extends GetxController {
   Future<void> signIn(BuildContext context) async {
     try {
       final response = await http.post(
-        Uri.parse('http://10.0.2.2:5000/api/auth/login'),
+        Uri.parse('https://credit-sea-assignment-flutter-backend.onrender.com/api/auth/login'),
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode(
             {'phoneNumber': '+91${phone.value}', 'password': password.value}),

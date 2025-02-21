@@ -1,4 +1,3 @@
-import 'package:creditsea_flutter_assignment/config/assets.dart';
 import 'package:creditsea_flutter_assignment/config/color.dart';
 import 'package:creditsea_flutter_assignment/view/widget/custombutton.dart';
 import 'package:creditsea_flutter_assignment/view/widget/progress_container.dart';
