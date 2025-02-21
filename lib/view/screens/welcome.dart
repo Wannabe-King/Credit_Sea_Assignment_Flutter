@@ -1,6 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:creditsea_flutter_assignment/constants/carousal_items.dart';
-import 'package:creditsea_flutter_assignment/constants/color.dart';
+import 'package:creditsea_flutter_assignment/config/carousal_items.dart';
+import 'package:creditsea_flutter_assignment/config/color.dart';
 import 'package:creditsea_flutter_assignment/controllers/auth_controller.dart';
 import 'package:creditsea_flutter_assignment/controllers/carousal_controller.dart';
 import 'package:creditsea_flutter_assignment/view/screens/signin.dart';

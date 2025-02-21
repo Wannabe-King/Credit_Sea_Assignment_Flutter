@@ -1,6 +1,8 @@
-import 'package:creditsea_flutter_assignment/constants/assets.dart';
-import 'package:creditsea_flutter_assignment/constants/color.dart';
+import 'package:creditsea_flutter_assignment/config/assets.dart';
+import 'package:creditsea_flutter_assignment/config/color.dart';
 import 'package:creditsea_flutter_assignment/view/widget/custombutton.dart';
+import 'package:creditsea_flutter_assignment/view/widget/progress_container.dart';
+import 'package:creditsea_flutter_assignment/view/widget/status_tile.dart';
 import 'package:flutter/material.dart';
 
 class ApplicationStatus extends StatefulWidget {
@@ -15,7 +17,9 @@ class _ApplicationStatusState extends State<ApplicationStatus> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("test"),
+        title: ProgressContainer(
+          selectedIndex: 3,
+        ),
       ),
       body: SafeArea(
         child: Container(
@@ -73,41 +77,48 @@ class _ApplicationStatusState extends State<ApplicationStatus> {
                 status: "Application Submitted",
                 done: true,
               ),
+              SizedBox(
+                height: 20,
+              ),
+              StatusTile(
+                status: "Application under Review",
+                done: false,
+                color: ColorX.buttonBlue,
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              StatusTile(
+                status: "E-KYC",
+                done: false,
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              StatusTile(
+                status: "E-Nach",
+                done: false,
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              StatusTile(
+                status: "E-Sign",
+                done: false,
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              StatusTile(
+                status: "Disbursement",
+                done: false,
+              ),
               Spacer(),
               CustomButton(buttonText: "Continue", disabled: true)
             ],
           ),
         ),
       ),
-    );
-  }
-}
-
-class StatusTile extends StatelessWidget {
-  final String status;
-  final bool done;
-  const StatusTile({
-    super.key,
-    required this.status,
-    required this.done,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 50,
-      decoration: BoxDecoration(
-        border: Border.all(color: done ? ColorX.green : ColorX.buttonBlue),
-        borderRadius: BorderRadius.circular(5),
-      ),
-      child: Center(
-          child: Text(
-        status,
-        style: TextStyle(
-          fontSize: 15,
-          color: done ? ColorX.green : ColorX.buttonBlue,
-        ),
-      )),
     );
   }
 }

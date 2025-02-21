@@ -1,4 +1,4 @@
-import 'package:creditsea_flutter_assignment/constants/color.dart';
+import 'package:creditsea_flutter_assignment/config/color.dart';
 import 'package:creditsea_flutter_assignment/controllers/personal_detail_controller.dart';
 import 'package:creditsea_flutter_assignment/view/widget/custom_input_container.dart';
 import 'package:flutter/material.dart';

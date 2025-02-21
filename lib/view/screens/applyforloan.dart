@@ -1,4 +1,4 @@
-import 'package:creditsea_flutter_assignment/constants/color.dart';
+import 'package:creditsea_flutter_assignment/config/color.dart';
 import 'package:creditsea_flutter_assignment/controllers/loan_controller.dart';
 import 'package:creditsea_flutter_assignment/view/screens/loanoffer.dart';
 import 'package:creditsea_flutter_assignment/view/widget/custom_gender_dropdown.dart';

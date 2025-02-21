@@ -1,4 +1,4 @@
-import 'package:creditsea_flutter_assignment/constants/assets.dart';
+import 'package:creditsea_flutter_assignment/config/assets.dart';
 import 'package:creditsea_flutter_assignment/controllers/personal_detail_controller.dart';
 import 'package:creditsea_flutter_assignment/view/screens/applyforloan.dart';
 import 'package:creditsea_flutter_assignment/view/widget/custom_input_container.dart';

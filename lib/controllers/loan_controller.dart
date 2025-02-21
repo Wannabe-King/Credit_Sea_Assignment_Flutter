@@ -14,7 +14,7 @@ class LoanController extends GetxController {
   static final GetStorage _storage = GetStorage();
   var token = _storage.read('auth_token');
 
-  void registerLoan(BuildContext context) async {
+  Future<void> registerLoan(BuildContext context) async {
     totalAmount =
         principalAmount + (principalAmount.value * 0.01 * tenure.value).toInt();
     final url = Uri.parse('http://10.0.2.2:5000/api/loan/create');

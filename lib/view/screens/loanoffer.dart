@@ -1,6 +1,7 @@
-import 'package:creditsea_flutter_assignment/constants/assets.dart';
-import 'package:creditsea_flutter_assignment/constants/color.dart';
+import 'package:creditsea_flutter_assignment/config/assets.dart';
+import 'package:creditsea_flutter_assignment/config/color.dart';
 import 'package:creditsea_flutter_assignment/controllers/loan_controller.dart';
+import 'package:creditsea_flutter_assignment/view/screens/applicationstatus.dart';
 import 'package:creditsea_flutter_assignment/view/widget/custombutton.dart';
 import 'package:creditsea_flutter_assignment/view/widget/progress_container.dart';
 import 'package:flutter/material.dart';
@@ -89,7 +90,7 @@ class _LoanOfferState extends State<LoanOffer> {
               buttonText: "Accept Offer",
               disabled: true,
               onTap: () {
-                loanController.registerLoan(context);
+                createLoan();
               },
             ),
             SizedBox(
@@ -104,5 +105,11 @@ class _LoanOfferState extends State<LoanOffer> {
         ),
       ),
     );
+  }
+
+  void createLoan() async {
+    await loanController.registerLoan(context);
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => ApplicationStatus()));
   }
 }

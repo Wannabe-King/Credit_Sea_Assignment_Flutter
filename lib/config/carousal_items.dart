@@ -1,4 +1,4 @@
-import 'package:creditsea_flutter_assignment/constants/assets.dart';
+import 'package:creditsea_flutter_assignment/config/assets.dart';
 import 'package:creditsea_flutter_assignment/view/widget/custom_tile.dart';
 import 'package:creditsea_flutter_assignment/view/widget/custom_top_container.dart';
 import 'package:flutter/material.dart';
