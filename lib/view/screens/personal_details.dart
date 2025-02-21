@@ -4,6 +4,7 @@ import 'package:creditsea_flutter_assignment/view/widget/custom_gender_dropdown.
 import 'package:creditsea_flutter_assignment/view/widget/custom_input_container.dart';
 import 'package:creditsea_flutter_assignment/view/widget/custom_input_field.dart';
 import 'package:creditsea_flutter_assignment/view/widget/custombutton.dart';
+import 'package:creditsea_flutter_assignment/view/widget/progress_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -21,7 +22,7 @@ class _PersonalDetailState extends State<PersonalDetail> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("test"),
+        title: ProgressContainer(selectedIndex: 1),
       ),
       body: SafeArea(
         child: Container(

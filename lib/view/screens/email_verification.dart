@@ -3,6 +3,7 @@ import 'package:creditsea_flutter_assignment/constants/color.dart';
 import 'package:creditsea_flutter_assignment/view/widget/custom_input_container.dart';
 import 'package:creditsea_flutter_assignment/view/widget/custom_input_field.dart';
 import 'package:creditsea_flutter_assignment/view/widget/custombutton.dart';
+import 'package:creditsea_flutter_assignment/view/widget/progress_container.dart';
 import 'package:flutter/material.dart';
 
 class EmailVerification extends StatefulWidget {
@@ -13,14 +14,13 @@ class EmailVerification extends StatefulWidget {
 }
 
 class _PersonalDetailState extends State<EmailVerification> {
-
-  final TextEditingController emailController=TextEditingController();
+  final TextEditingController emailController = TextEditingController();
   // final TextEditingController emailController=TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("test"),
+        title: ProgressContainer(selectedIndex: 2),
       ),
       body: SafeArea(
         child: Container(
@@ -64,15 +64,20 @@ class _PersonalDetailState extends State<EmailVerification> {
                 inputTitle: "Email ID*",
                 inputWidget: CustomInputField(
                   controller: emailController,
-                    hintText: "Enter your email ID", password: false,),
+                  hintText: "Enter your email ID",
+                  password: false,
+                ),
               ),
               SizedBox(
                 height: 20,
               ),
               CustomInputContainer(
                 inputTitle: "OTP Verification",
-                inputWidget:
-                    CustomInputField(controller: TextEditingController(),hintText: "test", password: false,),
+                inputWidget: CustomInputField(
+                  controller: TextEditingController(),
+                  hintText: "test",
+                  password: false,
+                ),
               ),
               Spacer(),
               CustomButton(buttonText: "Verify", disabled: true)
