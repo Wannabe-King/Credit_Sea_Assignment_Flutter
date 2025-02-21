@@ -1,14 +1,15 @@
-import 'package:creditsea_flutter_assignment/config/color.dart';
+import 'package:creditsea_flutter_assignment/constants/color.dart';
 import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:intl_phone_field/phone_number.dart';
 
 class CustomPhoneWidget extends StatelessWidget {
   final Function(PhoneNumber)? onchanged;
+  final TextEditingController controller;
 
   const CustomPhoneWidget({
     super.key,
-    this.onchanged,
+    this.onchanged, required this.controller,
   });
 
   static const inputBorder = OutlineInputBorder(
@@ -21,6 +22,7 @@ class CustomPhoneWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IntlPhoneField(
+      controller: controller,
       flagsButtonPadding: const EdgeInsets.all(8),
       dropdownIconPosition: IconPosition.trailing,
       decoration: const InputDecoration(
