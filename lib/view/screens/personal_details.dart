@@ -1,9 +1,9 @@
 import 'package:creditsea_flutter_assignment/constants/color.dart';
-import 'package:creditsea_flutter_assignment/widget/custom_date_picker.dart';
-import 'package:creditsea_flutter_assignment/widget/custom_gender_dropdown.dart';
-import 'package:creditsea_flutter_assignment/widget/custom_input_container.dart';
-import 'package:creditsea_flutter_assignment/widget/custom_input_field.dart';
-import 'package:creditsea_flutter_assignment/widget/custombutton.dart';
+import 'package:creditsea_flutter_assignment/view/widget/custom_date_picker.dart';
+import 'package:creditsea_flutter_assignment/view/widget/custom_gender_dropdown.dart';
+import 'package:creditsea_flutter_assignment/view/widget/custom_input_container.dart';
+import 'package:creditsea_flutter_assignment/view/widget/custom_input_field.dart';
+import 'package:creditsea_flutter_assignment/view/widget/custombutton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -15,6 +15,8 @@ class PersonalDetail extends StatefulWidget {
 }
 
 class _PersonalDetailState extends State<PersonalDetail> {
+  final TextEditingController firstNameController = TextEditingController();
+  final TextEditingController lastNameController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,12 +64,16 @@ class _PersonalDetailState extends State<PersonalDetail> {
                       width: 170,
                       inputTitle: "First Name*",
                       inputWidget: CustomInputField(
-                          hintText: "First Name", password: false)),
+                          controller: firstNameController,
+                          hintText: "First Name",
+                          password: false)),
                   CustomInputContainer(
                       width: 170,
                       inputTitle: "Last Name*",
                       inputWidget: CustomInputField(
-                          hintText: "Last Name", password: false)),
+                          controller: lastNameController,
+                          hintText: "Last Name",
+                          password: false)),
                 ],
               ),
               SizedBox(

@@ -1,6 +1,6 @@
 import 'package:creditsea_flutter_assignment/constants/assets.dart';
 import 'package:creditsea_flutter_assignment/constants/color.dart';
-import 'package:creditsea_flutter_assignment/widget/custombutton.dart';
+import 'package:creditsea_flutter_assignment/view/widget/custombutton.dart';
 import 'package:flutter/material.dart';
 
 class LoanOffer extends StatefulWidget {

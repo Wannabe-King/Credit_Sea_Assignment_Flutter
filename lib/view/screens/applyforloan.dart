@@ -1,9 +1,9 @@
 import 'package:creditsea_flutter_assignment/constants/assets.dart';
 import 'package:creditsea_flutter_assignment/constants/color.dart';
-import 'package:creditsea_flutter_assignment/widget/custom_gender_dropdown.dart';
-import 'package:creditsea_flutter_assignment/widget/custom_input_container.dart';
-import 'package:creditsea_flutter_assignment/widget/custom_input_field.dart';
-import 'package:creditsea_flutter_assignment/widget/custombutton.dart';
+import 'package:creditsea_flutter_assignment/view/widget/custom_gender_dropdown.dart';
+import 'package:creditsea_flutter_assignment/view/widget/custom_input_container.dart';
+import 'package:creditsea_flutter_assignment/view/widget/custom_input_field.dart';
+import 'package:creditsea_flutter_assignment/view/widget/custombutton.dart';
 import 'package:flutter/material.dart';
 import 'package:widgets_easier/widgets_easier.dart';
 

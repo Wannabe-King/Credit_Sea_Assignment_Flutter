@@ -1,18 +1,21 @@
 import 'package:creditsea_flutter_assignment/constants/assets.dart';
 import 'package:creditsea_flutter_assignment/constants/color.dart';
-import 'package:creditsea_flutter_assignment/widget/custom_input_container.dart';
-import 'package:creditsea_flutter_assignment/widget/custom_input_field.dart';
-import 'package:creditsea_flutter_assignment/widget/custombutton.dart';
+import 'package:creditsea_flutter_assignment/view/widget/custom_input_container.dart';
+import 'package:creditsea_flutter_assignment/view/widget/custom_input_field.dart';
+import 'package:creditsea_flutter_assignment/view/widget/custombutton.dart';
 import 'package:flutter/material.dart';
 
-class PanDetail extends StatefulWidget {
-  const PanDetail({super.key});
+class EmailVerification extends StatefulWidget {
+  const EmailVerification({super.key});
 
   @override
-  State<PanDetail> createState() => _PanDetailState();
+  State<EmailVerification> createState() => _PersonalDetailState();
 }
 
-class _PanDetailState extends State<PanDetail> {
+class _PersonalDetailState extends State<EmailVerification> {
+
+  final TextEditingController emailController=TextEditingController();
+  // final TextEditingController emailController=TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,22 +48,31 @@ class _PanDetailState extends State<PanDetail> {
                     width: 20,
                   ),
                   Text(
-                    "Verify PAN Number",
+                    "Personal Details",
                     style: TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
                   )
                 ],
               ),
               SizedBox(
-                height: 40,
+                height: 20,
               ),
-              Image.asset(Assets.creditcard),
+              Image.asset(Assets.email),
               SizedBox(
-                height: 40,
+                height: 20,
               ),
               CustomInputContainer(
-                inputTitle: "Enter Your PAN Number*",
+                inputTitle: "Email ID*",
                 inputWidget: CustomInputField(
-                    hintText: "e.g., ABCDE1234F", password: false),
+                  controller: emailController,
+                    hintText: "Enter your email ID", password: false,),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              CustomInputContainer(
+                inputTitle: "OTP Verification",
+                inputWidget:
+                    CustomInputField(controller: TextEditingController(),hintText: "test", password: false,),
               ),
               Spacer(),
               CustomButton(buttonText: "Verify", disabled: true)

@@ -6,13 +6,14 @@ class CustomInputField extends StatefulWidget {
   final Function(String)? onChanged;
   final bool password;
   final String? Function(String?)? validator;
+  final TextEditingController controller;
 
   CustomInputField({
     super.key,
     required this.hintText,
     this.onChanged,
     required this.password,
-    this.validator,
+    this.validator, required this.controller,
   });
 
   static const inputBorder = OutlineInputBorder(
@@ -40,6 +41,7 @@ class _CustomInputFieldState extends State<CustomInputField> {
     return SizedBox(
       height: 50,
       child: TextFormField(
+        controller: widget.controller,
         validator: widget.validator,
         obscureText: obscured,
         decoration: InputDecoration(
