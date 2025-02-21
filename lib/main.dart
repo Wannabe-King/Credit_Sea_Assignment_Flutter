@@ -1,11 +1,10 @@
-import 'package:creditsea_flutter_assignment/screens/email_verification.dart';
-import 'package:creditsea_flutter_assignment/screens/pan_detail.dart';
-import 'package:creditsea_flutter_assignment/screens/personal_details.dart';
-import 'package:creditsea_flutter_assignment/screens/welcome.dart';
+import 'package:creditsea_flutter_assignment/view/screens/welcome.dart';
 import 'package:flutter/material.dart';
+import 'package:get_storage/get_storage.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await GetStorage.init();
   runApp(const MyApp());
 }
 
@@ -17,7 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'CreditSea',
       debugShowCheckedModeBanner: false,
-      home: const PanDetail(),
+      home: const SignInPage(),
     );
   }
 }

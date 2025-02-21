@@ -1,18 +1,19 @@
-import 'package:creditsea_flutter_assignment/config/assets.dart';
-import 'package:creditsea_flutter_assignment/config/color.dart';
-import 'package:creditsea_flutter_assignment/widget/custom_input_container.dart';
-import 'package:creditsea_flutter_assignment/widget/custom_input_field.dart';
-import 'package:creditsea_flutter_assignment/widget/custombutton.dart';
+import 'package:creditsea_flutter_assignment/constants/assets.dart';
+import 'package:creditsea_flutter_assignment/constants/color.dart';
+import 'package:creditsea_flutter_assignment/view/widget/custom_input_container.dart';
+import 'package:creditsea_flutter_assignment/view/widget/custom_input_field.dart';
+import 'package:creditsea_flutter_assignment/view/widget/custombutton.dart';
 import 'package:flutter/material.dart';
 
 class PanDetail extends StatefulWidget {
   const PanDetail({super.key});
 
   @override
-  State<PanDetail> createState() => _PersonalDetailState();
+  State<PanDetail> createState() => _PanDetailState();
 }
 
-class _PersonalDetailState extends State<PanDetail> {
+class _PanDetailState extends State<PanDetail> {
+  final TextEditingController panController= TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,6 +61,7 @@ class _PersonalDetailState extends State<PanDetail> {
               CustomInputContainer(
                 inputTitle: "Enter Your PAN Number*",
                 inputWidget: CustomInputField(
+                  controller: panController,
                     hintText: "e.g., ABCDE1234F", password: false),
               ),
               Spacer(),
