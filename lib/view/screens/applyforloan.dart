@@ -1,11 +1,12 @@
-import 'package:creditsea_flutter_assignment/constants/assets.dart';
 import 'package:creditsea_flutter_assignment/constants/color.dart';
+import 'package:creditsea_flutter_assignment/controllers/loan_controller.dart';
+import 'package:creditsea_flutter_assignment/view/screens/loanoffer.dart';
 import 'package:creditsea_flutter_assignment/view/widget/custom_gender_dropdown.dart';
 import 'package:creditsea_flutter_assignment/view/widget/custom_input_container.dart';
-import 'package:creditsea_flutter_assignment/view/widget/custom_input_field.dart';
 import 'package:creditsea_flutter_assignment/view/widget/custombutton.dart';
 import 'package:creditsea_flutter_assignment/view/widget/progress_container.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:widgets_easier/widgets_easier.dart';
 
 class ApplyForLoan extends StatefulWidget {
@@ -16,6 +17,8 @@ class ApplyForLoan extends StatefulWidget {
 }
 
 class _ApplyForLoanState extends State<ApplyForLoan> {
+  final LoanController loanController =
+      Get.put(LoanController(), permanent: true);
   int principalAmount = 5000;
   int loanTenure = 20;
   @override
@@ -109,6 +112,11 @@ class _ApplyForLoanState extends State<ApplyForLoan> {
                 CustomInputContainer(
                   inputTitle: "Purpose of Loan*",
                   inputWidget: CustomDropdown(
+                    onChanged: (value) {
+                      if (value != null) {
+                        loanController.purpose.value = value;
+                      }
+                    },
                     hintText: "Select purpose of loan",
                     options: ["Home Loan", "Education Loan", "Personal Loan"],
                   ),
@@ -304,7 +312,18 @@ class _ApplyForLoanState extends State<ApplyForLoan> {
                 SizedBox(
                   height: 30,
                 ),
-                CustomButton(buttonText: "Verify", disabled: true),
+                CustomButton(
+                  buttonText: "Verify",
+                  disabled: true,
+                  onTap: () {
+                    if (loanController.purpose.value != '') {
+                      loanController.principalAmount.value = principalAmount;
+                      loanController.tenure.value = loanTenure;
+                      Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context) => LoanOffer()));
+                    }
+                  },
+                ),
                 SizedBox(
                   height: 20,
                 ),

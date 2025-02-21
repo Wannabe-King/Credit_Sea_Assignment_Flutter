@@ -1,7 +1,10 @@
 import 'package:creditsea_flutter_assignment/constants/assets.dart';
 import 'package:creditsea_flutter_assignment/constants/color.dart';
+import 'package:creditsea_flutter_assignment/controllers/loan_controller.dart';
 import 'package:creditsea_flutter_assignment/view/widget/custombutton.dart';
+import 'package:creditsea_flutter_assignment/view/widget/progress_container.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class LoanOffer extends StatefulWidget {
   const LoanOffer({super.key});
@@ -11,11 +14,14 @@ class LoanOffer extends StatefulWidget {
 }
 
 class _LoanOfferState extends State<LoanOffer> {
+  final LoanController loanController = Get.find<LoanController>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("tset"),
+        title: ProgressContainer(
+          selectedIndex: 2,
+        ),
       ),
       body: Container(
         padding: EdgeInsets.symmetric(vertical: 50, horizontal: 16),
@@ -43,32 +49,32 @@ class _LoanOfferState extends State<LoanOffer> {
                         style: TextStyle(fontSize: 16, color: Colors.black), //
                         children: [
                           TextSpan(
-                            text: "Congratulations!", // Bold part
+                            text: "Congratulations!",
                             style: TextStyle(color: ColorX.green),
                           ),
                           TextSpan(text: " We can offer you "),
                           TextSpan(
-                            text: "Rs. 10,000", // Bold part
+                            text: "Rs. 10,000",
                             style: TextStyle(fontWeight: FontWeight.bold),
                           ),
                           TextSpan(text: " Amount Within "),
                           TextSpan(
-                            text: "30 minutes", // Bold part
+                            text: "30 minutes",
                             style: TextStyle(fontWeight: FontWeight.bold),
                           ),
                           TextSpan(text: " for "),
                           TextSpan(
-                            text: "90 days", // Bold part
+                            text: "90 days",
                             style: TextStyle(fontWeight: FontWeight.bold),
                           ),
                           TextSpan(text: ", with a payable amount of "),
                           TextSpan(
-                            text: "Rs. 10,600", // Bold part
+                            text: "Rs. 10,600",
                             style: TextStyle(fontWeight: FontWeight.bold),
                           ),
                           TextSpan(text: ". Just with few more steps.\n\n "),
                           TextSpan(
-                            text: "Proceed further to", // Bold part
+                            text: "Proceed further to",
                             style: TextStyle(fontWeight: FontWeight.bold),
                           ),
                         ],
@@ -79,7 +85,13 @@ class _LoanOfferState extends State<LoanOffer> {
               ),
             ),
             Spacer(),
-            CustomButton(buttonText: "Accept Offer", disabled: true),
+            CustomButton(
+              buttonText: "Accept Offer",
+              disabled: true,
+              onTap: () {
+                loanController.registerLoan(context);
+              },
+            ),
             SizedBox(
               height: 20,
             ),
