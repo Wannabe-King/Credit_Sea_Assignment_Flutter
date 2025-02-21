@@ -5,12 +5,6 @@ import 'package:creditsea_flutter_assignment/controllers/auth_controller.dart';
 import 'package:creditsea_flutter_assignment/controllers/carousal_controller.dart';
 import 'package:creditsea_flutter_assignment/view/screens/signin.dart';
 import 'package:creditsea_flutter_assignment/view/screens/signupFlow.dart';
-import 'package:creditsea_flutter_assignment/view/widget/custom_input_container.dart';
-import 'package:creditsea_flutter_assignment/view/widget/custom_input_field.dart';
-import 'package:creditsea_flutter_assignment/view/widget/custom_phone_input.dart';
-import 'package:creditsea_flutter_assignment/view/widget/custom_tile.dart';
-import 'package:creditsea_flutter_assignment/view/widget/custom_top_container.dart';
-import 'package:creditsea_flutter_assignment/view/widget/custombutton.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -23,13 +17,11 @@ class SignInPage extends StatefulWidget {
 }
 
 class _SignInPageState extends State<SignInPage> {
-  final AuthType authenticationType = Get.put(AuthType());
+  final AuthType authenticationType = Get.put(AuthType(), permanent: true);
 
   final CarouselSliderController _controller = CarouselSliderController();
   final CarouselIndicatorController indicator =
       Get.put(CarouselIndicatorController());
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -98,4 +90,3 @@ class _SignInPageState extends State<SignInPage> {
     });
   }
 }
-

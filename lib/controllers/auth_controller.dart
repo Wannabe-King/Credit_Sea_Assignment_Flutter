@@ -7,7 +7,7 @@ class AuthType extends GetxController {
     if (authType.value == 0) {
       authType.value = 1;
     } else {
-      authType = 0.obs;
+      authType.value = 0;
     }
   }
 }

@@ -1,4 +1,5 @@
 import 'package:creditsea_flutter_assignment/constants/color.dart';
+import 'package:creditsea_flutter_assignment/controllers/auth_controller.dart';
 import 'package:creditsea_flutter_assignment/controllers/signup_controller.dart';
 import 'package:creditsea_flutter_assignment/view/widget/custom_input_container.dart';
 import 'package:creditsea_flutter_assignment/view/widget/custom_input_field.dart';
@@ -23,6 +24,7 @@ class _SignUpFlowState extends State<SignUpFlow> {
   final List<TextEditingController> _otpControllers =
       List.generate(4, (_) => TextEditingController());
   final SignupController signupController = Get.put(SignupController());
+  final AuthType authType = Get.find<AuthType>();
   bool agree = false;
   @override
   Widget build(BuildContext context) {
@@ -178,7 +180,9 @@ class _SignUpFlowState extends State<SignUpFlow> {
           },
         ),
         GestureDetector(
-          onTap: () {},
+          onTap: () {
+            authType.alterAuthenticationType();
+          },
           child: Center(
             child: Padding(
               padding: const EdgeInsets.all(15.0),
@@ -242,18 +246,33 @@ class _SignUpFlowState extends State<SignUpFlow> {
           disabled: true,
           onTap: () {
             if (passwordController.text.length != 6) {
-              Get.snackbar("Error", "Password must be at least 6 characters");
+              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                  content: Text("Password must be at least 6 characters")));
             } else {
               if (passwordController.text != reenterController.text) {
-                Get.snackbar("Error", "Passwords do not match");
+                ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text("Passwords do not match")));
               } else {
-                signupController.password.value = passwordController.text;
-                Get.snackbar("Success", "Registeration Successful");
+                signUp();
               }
             }
           },
         ),
       ],
     );
+  }
+
+  void signUp() async {
+    signupController.password.value = passwordController.text;
+    var success = await signupController.signUpUser(context);
+    if (success == true) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content:
+              Text("Registration Successful. Please signIn to continue.")));
+      authType.alterAuthenticationType();
+      setState(() {
+        agree = !agree;
+      });
+    }
   }
 }
