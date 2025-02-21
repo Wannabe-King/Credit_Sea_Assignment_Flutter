@@ -1,6 +1,8 @@
 import 'package:creditsea_flutter_assignment/constants/color.dart';
+import 'package:creditsea_flutter_assignment/controllers/personal_detail_controller.dart';
 import 'package:creditsea_flutter_assignment/view/widget/custom_input_container.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class CustomDatePickerField extends StatefulWidget {
   final String hintText;
@@ -25,6 +27,8 @@ class CustomDatePickerField extends StatefulWidget {
 
 class _CustomDatePickerFieldState extends State<CustomDatePickerField> {
   DateTime? selectedDate;
+  final PersonalDetailController personalDetailController =
+      Get.find<PersonalDetailController>();
 
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
@@ -34,6 +38,7 @@ class _CustomDatePickerFieldState extends State<CustomDatePickerField> {
       lastDate: DateTime(2100),
     );
     if (picked != null && picked != selectedDate) {
+      personalDetailController.pickDob(picked);
       setState(() {
         selectedDate = picked;
       });

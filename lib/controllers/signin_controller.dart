@@ -24,6 +24,7 @@ class SigninController extends GetxController {
         final data = jsonDecode(response.body);
         String token = data['token'];
         await _storage.write('auth_token', token);
+        await _storage.write('phone', '+91${phone.value}');
         print('Login successful! Token: $token');
         Navigator.of(context).pushReplacement(
             MaterialPageRoute(builder: (context) => PersonalDetail()));
